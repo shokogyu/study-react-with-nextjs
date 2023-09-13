@@ -4,5 +4,6 @@
   "eslint.validate": ["javascript"],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100
 }

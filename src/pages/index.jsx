@@ -5,23 +5,32 @@ import { Inter } from "next/font/google";
 import { Links } from "src/components/Links";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [count, setCount] = useState(1);
-  // let count = 1;
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
-  const handleClick = () => {
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+  }, []);
+
+  const handleClick = useCallback(() => {
+    console.log(count);
     // setCount(count + 1);　NG例
     // setCount(function (count) {
     //   return count + 1;
     // });
     // ↓　↓　↓
-    setCount((count) => count + 1);
-    setCount((count) => count + 1);
-  };
+    setCount((foo) => foo + 1);
+  }, [count]);
+
+  const handleChange = useCallback((e) => {
+    setText(e.target.value);
+  }, []);
 
   useEffect(() => {
     // Mount時の処理
@@ -44,8 +53,11 @@ export default function Home() {
 
       <Header />
 
-      {count}
+      {isShow ? count : null}
+
       <button onClick={handleClick}>ボタン</button>
+      <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={text} onChange={(e) => handleChange(e)} />
       <Main page="index" />
     </>
   );
