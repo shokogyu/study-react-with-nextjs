@@ -5,11 +5,24 @@ import { Inter } from "next/font/google";
 import { Links } from "src/components/Links";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [count, setCount] = useState(1);
+  // let count = 1;
+
+  const handleClick = () => {
+    // setCount(count + 1);　NG例
+    // setCount(function (count) {
+    //   return count + 1;
+    // });
+    // ↓　↓　↓
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+  };
+
   useEffect(() => {
     // Mount時の処理
     document.body.style.backgroundColor = "lightblue";
@@ -31,6 +44,8 @@ export default function Home() {
 
       <Header />
 
+      {count}
+      <button onClick={handleClick}>ボタン</button>
       <Main page="index" />
     </>
   );
