@@ -15,17 +15,16 @@ export default function Home() {
   const [isShow, setIsShow] = useState(true);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   const handleClick = useCallback(() => {
-    console.log(count);
     // setCount(count + 1);　NG例
     // setCount(function (count) {
     //   return count + 1;
     // });
     // ↓　↓　↓
-    setCount((foo) => foo + 1);
+    setCount((prevCount) => prevCount + 1);
   }, [count]);
 
   const handleChange = useCallback((e) => {
@@ -34,11 +33,11 @@ export default function Home() {
 
   useEffect(() => {
     // Mount時の処理
-    document.body.style.backgroundColor = "lightblue";
+    // document.body.style.backgroundColor = "lightblue";
 
     // Unmount時の処理
     return () => {
-      document.body.style.backgroundColor = "";
+      // document.body.style.backgroundColor = "";
     };
   }, []);
 
