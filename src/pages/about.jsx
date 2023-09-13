@@ -1,12 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
 // import styles from '@/styles/Home.module.css'
-import { Links } from '../components/Links'
-import { Main } from '../components/Main'
-import { Header } from '../components/Header'
+import { Links } from "src/components/Links";
+import { Main } from "src/components/Main";
+import { Header } from "src/components/Header";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -21,5 +21,5 @@ export default function Home() {
       <Header />
       <Main page="about" />
     </>
-  )
+  );
 }

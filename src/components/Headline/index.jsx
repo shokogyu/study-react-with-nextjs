@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import classes from './Headline.module.css'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import classes from "src/components/Headline/Headline.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export function Headline(props) {
   return (
@@ -17,10 +17,10 @@ export function Headline(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          By{' '}
+          By{" "}
           <Image
             src="/vercel.svg"
-            alt="Vercel Logo"
+            alt='"Vercel Logo"'
             className={classes.vercelLogo}
             width={100}
             height={24}
@@ -29,5 +29,5 @@ export function Headline(props) {
         </a>
       </div>
     </div>
-  )
+  );
 }
