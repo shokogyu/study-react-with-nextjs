@@ -13,6 +13,7 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleDisplay = useCallback(() => {
     setIsShow((prevIsShow) => !prevIsShow);
@@ -30,6 +31,16 @@ export default function Home() {
   const handleChange = useCallback((e) => {
     setText(e.target.value);
   }, []);
+
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("同じアイテムが存在します");
+        return prevArray;
+      }
+      return [...prevArray, text];
+    });
+  }, [text]);
 
   useEffect(() => {
     // Mount時の処理
@@ -52,11 +63,21 @@ export default function Home() {
 
       <Header />
 
-      {isShow ? count : null}
+      <div>
+        <p>{isShow ? count : null}</p>
+        <button onClick={handleClick}>ボタン</button>
+        <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
+      </div>
 
-      <button onClick={handleClick}>ボタン</button>
-      <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
-      <input type="text" value={text} onChange={(e) => handleChange(e)} />
+      <div>
+        <input type="text" value={text} onChange={(e) => handleChange(e)} />
+        <button onClick={handleAdd}>Add</button>
+        <ul>
+          {array.map((item) => {
+            return <li key={item}>{item}</li>;
+          })}
+        </ul>
+      </div>
       <Main page="index" />
     </>
   );
