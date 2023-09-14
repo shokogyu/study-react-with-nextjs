@@ -18,15 +18,10 @@ export default function Home() {
     setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     console.log(count);
     setCount((prevCount) => prevCount + 1);
-  };
-
-  // const handleClick = useCallback(() => {
-  //   console.log(count);
-  //   setCount((prevCount) => prevCount + 1);
-  // }, [count]);
+  }, [count]);
 
   const handleChange = useCallback((e) => {
     setText(e.target.value);
