@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-// import styles from '@/styles/Home.module.css'
-import { Links } from "src/components/Links";
+import classes from "src/styles/Home.module.css";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
 import { useCallback, useEffect, useState } from "react";
@@ -19,22 +18,26 @@ export default function Home() {
     setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
-  const handleClick = useCallback(() => {
-    // setCount(count + 1);　NG例
-    // setCount(function (count) {
-    //   return count + 1;
-    // });
-    // ↓　↓　↓
+  const handleClick = () => {
+    console.log(count);
     setCount((prevCount) => prevCount + 1);
-  }, [count]);
+  };
+
+  // const handleClick = useCallback(() => {
+  //   console.log(count);
+  //   setCount((prevCount) => prevCount + 1);
+  // }, [count]);
 
   const handleChange = useCallback((e) => {
     setText(e.target.value);
   }, []);
 
   const handleAdd = useCallback(() => {
+    console.log("111");
     setArray((prevArray) => {
+      console.log("222");
       if (prevArray.some((item) => item === text)) {
+        console.log("333");
         alert("同じアイテムが存在します");
         return prevArray;
       }
@@ -63,21 +66,22 @@ export default function Home() {
 
       <Header />
 
-      <div>
+      <div className={classes.content}>
         <p>{isShow ? count : null}</p>
-        <button onClick={handleClick}>ボタン</button>
+        <button onClick={handleClick}>カウントアップ</button>
         <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
+
+        <div className={classes.textAdd}>
+          <input type="text" value={text} onChange={(e) => handleChange(e)} />
+          <button onClick={handleAdd}>Add</button>
+          <ul>
+            {array.map((item) => {
+              return <li key={item}>{item}</li>;
+            })}
+          </ul>
+        </div>
       </div>
 
-      <div>
-        <input type="text" value={text} onChange={(e) => handleChange(e)} />
-        <button onClick={handleAdd}>Add</button>
-        <ul>
-          {array.map((item) => {
-            return <li key={item}>{item}</li>;
-          })}
-        </ul>
-      </div>
       <Main page="index" />
     </>
   );

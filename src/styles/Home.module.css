@@ -1,3 +1,26 @@
+.content {
+  margin: auto;
+  text-align: center;
+  background-color: #595959;
+  padding: 30px;
+}
+
+.textAdd {
+  margin-top: 40px;
+}
+
+.textAdd input {
+  padding: 0.2em 1em;
+  font-size: 18px;
+  margin-right: 1em;
+}
+
+.textAdd ul {
+  width: fit-content;
+  margin: auto;
+  text-align: left;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(360deg);
