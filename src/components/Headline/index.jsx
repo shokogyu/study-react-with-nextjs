@@ -5,6 +5,7 @@ import classes from "src/components/Headline/Headline.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export function Headline(props) {
+  // const { page, items, handleReduce } = props;
   return (
     <div className={classes.description}>
       <p>
@@ -28,6 +29,8 @@ export function Headline(props) {
           />
         </a>
       </div>
+      <p>アイテムの数は、{props.items.length}個です</p>
+      <button onClick={props.handleReduce}>reduce</button>
     </div>
   );
 }
