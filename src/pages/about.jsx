@@ -5,10 +5,18 @@ import { Inter } from "next/font/google";
 import { Links } from "src/components/Links";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
+import classes from "src/styles/Home.module.css";
+import { useCounter } from "@/src/hooks/useCounter";
+import { useInputArray } from "@/src/hooks/useInputArray";
+import { useBgLightBlue } from "@/src/hooks/useBgLightBlue";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function About() {
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
+  useBgLightBlue();
+
   return (
     <>
       <Head>
@@ -19,6 +27,23 @@ export default function Home() {
       </Head>
 
       <Header />
+
+      <div className={classes.content}>
+        <p>{isShow ? count : null}</p>
+        <button onClick={handleClick}>カウントアップ</button>
+        <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
+
+        <div className={classes.textAdd}>
+          <input type="text" value={text} onChange={(e) => handleChange(e)} />
+          <button onClick={handleAdd}>Add</button>
+          <ul>
+            {array.map((item) => {
+              return <li key={item}>{item}</li>;
+            })}
+          </ul>
+        </div>
+      </div>
+
       <Main page="about" />
     </>
   );
