@@ -4,8 +4,7 @@ import classes from "src/components/Headline/Headline.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export function Headline(props) {
-  // const { page, items, handleReduce } = props;
+export const Headline = (props) => {
   return (
     <div className={classes.description}>
       <p>
@@ -33,4 +32,4 @@ export function Headline(props) {
       <button onClick={() => props.handleReduce()}>reduce</button>
     </div>
   );
-}
+};

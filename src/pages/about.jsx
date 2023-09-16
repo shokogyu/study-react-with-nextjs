@@ -7,16 +7,7 @@ import classes from "src/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({
-  isShow,
-  doubleCount,
-  handleClick,
-  handleDisplay,
-  text,
-  array,
-  handleChange,
-  handleAdd,
-}) {
+export default function About(props) {
   return (
     <>
       <Head>
@@ -29,15 +20,15 @@ export default function About({
       <Header />
 
       <div className={classes.content}>
-        <p>{isShow ? doubleCount : null}</p>
-        <button onClick={handleClick}>カウントアップ</button>
-        <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
+        <p>{props.isShow ? props.doubleCount : null}</p>
+        <button onClick={props.handleClick}>カウントアップ</button>
+        <button onClick={() => props.handleDisplay()}>{props.isShow ? "非表示" : "表示"}</button>
 
         <div className={classes.textAdd}>
-          <input type="text" value={text} onChange={(e) => handleChange(e)} />
-          <button onClick={handleAdd}>Add</button>
+          <input type="text" value={props.text} onChange={(e) => props.handleChange(e)} />
+          <button onClick={props.handleAdd}>Add</button>
           <ul>
-            {array.map((item) => {
+            {props.array.map((item) => {
               return <li key={item}>{item}</li>;
             })}
           </ul>

@@ -3,13 +3,11 @@ import classes from "src/components/Links/Links.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export function Links(props) {
-  const { items, handleReduce } = props;
-
+export const Links = (props) => {
   return (
     <div className={classes.grid}>
-      <button onClick={() => handleReduce()}>減らす</button>
-      {items.map((item) => {
+      <button onClick={() => props.handleReduce()}>減らす</button>
+      {props.items.map((item) => {
         return (
           <a
             key={item.title}
@@ -27,4 +25,4 @@ export function Links(props) {
       })}
     </div>
   );
-}
+};
