@@ -1,20 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 // import styles from '@/styles/Home.module.css'
-import { Links } from "src/components/Links";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
 import classes from "src/styles/Home.module.css";
-import { useCounter } from "@/src/hooks/useCounter";
-import { useInputArray } from "@/src/hooks/useInputArray";
-import { useBgLightBlue } from "@/src/hooks/useBgLightBlue";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function About({
-  count,
   isShow,
+  doubleCount,
   handleClick,
   handleDisplay,
   text,
@@ -34,7 +29,7 @@ export default function About({
       <Header />
 
       <div className={classes.content}>
-        <p>{isShow ? count : null}</p>
+        <p>{isShow ? doubleCount : null}</p>
         <button onClick={handleClick}>カウントアップ</button>
         <button onClick={() => handleDisplay()}>{isShow ? "非表示" : "表示"}</button>
 
