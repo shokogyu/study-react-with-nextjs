@@ -8,7 +8,7 @@ export function Links(props) {
 
   return (
     <div className={classes.grid}>
-      <button onClick={handleReduce()}>減らす</button>
+      <button onClick={() => handleReduce()}>減らす</button>
       {items.map((item) => {
         return (
           <a

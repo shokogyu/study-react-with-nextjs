@@ -30,7 +30,7 @@ export function Headline(props) {
         </a>
       </div>
       <p>アイテムの数は、{props.items.length}個です</p>
-      <button onClick={props.handleReduce}>reduce</button>
+      <button onClick={() => props.handleReduce()}>reduce</button>
     </div>
   );
 }
