@@ -28,11 +28,8 @@ export default function Home() {
   }, []);
 
   const handleAdd = useCallback(() => {
-    console.log("111");
     setArray((prevArray) => {
-      console.log("222");
       if (prevArray.some((item) => item === text)) {
-        console.log("333");
         alert("同じアイテムが存在します");
         return prevArray;
       }
@@ -42,11 +39,11 @@ export default function Home() {
 
   useEffect(() => {
     // Mount時の処理
-    // document.body.style.backgroundColor = "lightblue";
+    document.body.style.backgroundColor = "lightblue";
 
     // Unmount時の処理
     return () => {
-      // document.body.style.backgroundColor = "";
+      document.body.style.backgroundColor = "";
     };
   }, []);
 
