@@ -16,21 +16,26 @@ const fetcher = async (url) => {
 const PostId = () => {
   const router = useRouter();
 
-  const { data, error } = useSWR(
+  const { data: post, error: postError } = useSWR(
     router.query.id ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}` : null,
+    fetcher
+  );
+  const { data: user, error: userError } = useSWR(
+    post?.userId ? `https://jsonplaceholder.typicode.com/users/${post.userId}` : null,
     fetcher
   );
 
   return (
     <>
       <Head>
-        <title>{data?.title}</title>
+        <title>{post?.title}</title>
       </Head>
       <Header />
 
       {/* optional chaining */}
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
+      <h1>{post?.title}</h1>
+      <p>{post?.body}</p>
+      <small>Created by {user?.name}</small>
     </>
   );
 };
