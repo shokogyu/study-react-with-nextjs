@@ -1,34 +1,44 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
+
+// reducer : state => action => newState
+const initialState = {
+  data: [],
+  loading: true,
+  error: null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "end":
+      return {
+        ...state,
+        loading: false,
+        data: action.data,
+      };
+    case "error":
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    default:
+      throw new Error("no such an action type!");
+  }
+};
 
 export const Posts = () => {
-  const [state, setState] = useState({
-    data: [],
-    loading: true,
-    error: null,
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPosts = useCallback(async () => {
     try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/postsaaa");
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!res.ok) {
         throw new Error("エラーが発生したため、データの取得に失敗しました");
       }
       const json = await res.json();
-      setState((prevState) => {
-        return {
-          ...prevState,
-          data: json,
-          loading: false,
-        };
-      });
+      dispatch({ type: "end", data: json });
     } catch (error) {
-      setState((prevState) => {
-        return {
-          ...prevState,
-          loading: false,
-          error, //error: error [key, valが同じだったら省略できる]
-        };
-      });
+      dispatch({ type: "error", error });
     }
   }, []);
 
