@@ -18,7 +18,9 @@ const Home = (props) => {
 
       <Header />
 
-      <Posts />
+      <main>
+        <Posts />
+      </main>
     </>
   );
 };

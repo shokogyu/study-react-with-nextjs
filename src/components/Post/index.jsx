@@ -1,5 +1,6 @@
 import { usePost } from "@/src/hooks/usePost";
 import Head from "next/head";
+import styles from "src/styles/Home.module.css";
 
 export const Post = () => {
   const { post, user, error, isLoading } = usePost();
@@ -17,11 +18,13 @@ export const Post = () => {
       <Head>
         <title>{post?.title}</title>
       </Head>
-      
-      {/* optional chaining */}
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-      {user?.name ? <small>Created by {user.name}</small> : null}
+
+      <div className={styles.container}>
+        {/* optional chaining */}
+        <h1>{post?.title}</h1>
+        <p>{post?.body}</p>
+        {user?.name ? <small>Created by {user.name}</small> : null}
+      </div>
     </>
   );
 };

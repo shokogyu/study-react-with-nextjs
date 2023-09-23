@@ -1,5 +1,7 @@
 import { usePosts } from "@/src/hooks/usePosts";
 import Link from "next/link";
+import classes from "src/components/Posts/Posts.module.css";
+import styles from "src/styles/Home.module.css";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
@@ -17,8 +19,8 @@ export const Posts = () => {
   }
 
   return (
-    <>
-      <ol>
+    <div className={styles.container}>
+      <ol className={classes.list}>
         {data.map((post) => {
           return (
             <li key={post.id}>
@@ -27,6 +29,6 @@ export const Posts = () => {
           );
         })}
       </ol>
-    </>
+    </div>
   );
 };
