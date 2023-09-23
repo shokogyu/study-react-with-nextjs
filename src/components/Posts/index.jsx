@@ -1,20 +1,7 @@
-import useSWR from "swr";
-
-const fetcher = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("エラーが発生したため、データの取得に失敗しました");
-  }
-
-  const json = await response.json();
-  return json;
-};
+import { usePosts } from "@/src/hooks/usePosts";
 
 export const Posts = () => {
-  const { data, error, isLoading } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts?id=10000",
-    fetcher
-  );
+  const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -24,7 +11,7 @@ export const Posts = () => {
     return <div>{error.message}</div>;
   }
 
-  if (data.length === 0) {
+  if (isEmpty) {
     return <div>データは空です。</div>;
   }
 
