@@ -18,6 +18,6 @@ export const usePost = () => {
     post,
     user,
     error: postError || userError,
-    isLoading: !user && !userError,
+    isLoading: !post && !postError && !user && !userError,
   };
 };
