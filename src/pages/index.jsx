@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import { Header } from "src/components/Header";
-import classes from "src/styles/Home.module.css";
+import classes from "src/components/Layout/Layout.module.css";
+import { Layout } from "@/src/components/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +17,11 @@ export default function Index() {
       </Head>
 
       <Header />
+
       <main>
-        <h1 className={classes.pageTitle}>Next.jsで学ぶReact講座</h1>
+        <Layout>
+          <h1 className={classes.pageTitle}>Next.jsで学ぶReact講座</h1>
+        </Layout>
       </main>
     </>
   );

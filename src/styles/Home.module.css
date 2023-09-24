@@ -21,10 +21,6 @@
   text-align: left;
 }
 
-.pageTitle {
-  text-align: center;
-}
-
 @keyframes rotate {
   from {
     transform: rotate(360deg);
