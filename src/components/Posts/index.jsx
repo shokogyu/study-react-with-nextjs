@@ -1,5 +1,5 @@
 import { Layout } from "@/src/components/Layout";
-import { usePosts } from "@/src/hooks/usePosts";
+import { usePosts } from "@/src/hooks/useFetchArray";
 import Link from "next/link";
 import classes from "src/components/Posts/Posts.module.css";
 

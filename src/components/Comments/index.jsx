@@ -1,5 +1,5 @@
 import { Layout } from "@/src/components/Layout";
-import { useComments } from "@/src/hooks/useComments";
+import { useComments } from "@/src/hooks/useFetchArray";
 import Link from "next/link";
 
 export const Comments = () => {
