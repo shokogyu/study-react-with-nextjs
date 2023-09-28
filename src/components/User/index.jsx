@@ -1,5 +1,6 @@
 import { Layout } from "@/src/components/Layout";
 import classes from "@/src/components/Layout/Layout.module.css";
+import { PostsByUserId } from "@/src/components/Posts/PostsByUserId";
 import { useUser } from "@/src/hooks/useUser";
 
 export const User = () => {
@@ -13,7 +14,7 @@ export const User = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  
+
   return (
     <Layout>
       <h1 className={classes.pageTitle}>{data?.name}</h1>
@@ -22,6 +23,7 @@ export const User = () => {
         <li>{data?.phone}</li>
         <li>{data?.website}</li>
       </ul>
+      <PostsByUserId id={data?.id} />
     </Layout>
   );
 };
