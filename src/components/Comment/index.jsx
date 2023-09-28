@@ -1,4 +1,5 @@
 import { Layout } from "@/src/components/Layout";
+import { PostByPostId } from "@/src/components/Posts/PostByPostId";
 import { useComment } from "@/src/hooks/useComment";
 import Head from "next/head";
 
@@ -26,6 +27,8 @@ export const Comment = () => {
           <li>{data?.name}</li>
           <li>{data?.email}</li>
         </ul>
+
+        <PostByPostId id={data?.postId} />
       </Layout>
     </>
   );

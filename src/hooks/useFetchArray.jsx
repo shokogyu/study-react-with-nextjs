@@ -25,3 +25,8 @@ export const usePosts = () => {
 export const useUsers = () => {
   return useFetchArray(`${API_URL}/users`);
 };
+
+
+export const usePostByPostId = (id) => {
+  return useFetchArray(id ? `${API_URL}/posts?id=${id}` : null);
+};
