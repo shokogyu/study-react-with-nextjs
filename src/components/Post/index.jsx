@@ -1,3 +1,4 @@
+import { CommentsByPostId } from "@/src/components/Comments/commentsByPostId";
 import { Layout } from "@/src/components/Layout";
 import { usePost } from "@/src/hooks/usePost";
 import Head from "next/head";
@@ -24,6 +25,7 @@ export const Post = () => {
         <h1>{post?.title}</h1>
         <p>{post?.body}</p>
         {user?.name ? <small>Created by {user.name}</small> : null}
+        <CommentsByPostId id={post?.id} />
       </Layout>
     </>
   );
