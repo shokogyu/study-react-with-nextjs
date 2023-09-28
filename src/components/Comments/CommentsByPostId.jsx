@@ -17,9 +17,9 @@ export const CommentsByPostId = (props) => {
   }
 
   return (
-    <div>
-      <h2>Comments</h2>
-      <ol>
+    <div className="mt-20">
+      <h2 className="text-3xl font-semibold">Comments</h2>
+      <ol className="list-decimal pl-10 mt-4">
         {data.map((comment) => {
           return (
             <li key={comment.id}>

@@ -17,9 +17,9 @@ export const PostsByUserId = (props) => {
   }
 
   return (
-    <div>
-      <h2>Posts by the User...</h2>
-      <ol>
+    <div className="mt-20">
+      <h2 className="text-3xl font-semibold">Posts by the User...</h2>
+      <ol className="list-decimal pl-10 mt-4">
         {data?.map((post) => {
           return (
             <li key={post.id}>

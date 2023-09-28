@@ -19,6 +19,7 @@ const Posts = (props) => {
       <Header />
 
       <main>
+        <h1 className="text-center font-bold text-4xl mb-8">投稿一覧</h1>
         <PostComponent />
       </main>
     </>

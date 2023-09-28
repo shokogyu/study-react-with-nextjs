@@ -1,6 +1,5 @@
 import { Header } from "@/src/components/Header";
 import { Layout } from "@/src/components/Layout";
-import classes from "@/src/components/Layout/Layout.module.css";
 import Head from "next/head";
 import { Comments as CommentComponent } from "src/components/Comments";
 
@@ -15,7 +14,7 @@ const Comments = () => {
 
       <main>
         <Layout>
-          <h1 className={classes.pageTitle}>コメント一覧</h1>
+          <h1 className="text-center font-bold text-4xl mb-8">コメント一覧</h1>
           <CommentComponent />
         </Layout>
       </main>

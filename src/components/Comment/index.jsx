@@ -22,10 +22,11 @@ export const Comment = () => {
 
       <Layout>
         {/* optional chaining */}
-        <h1>{data?.body}</h1>
-        <ul>
-          <li>{data?.name}</li>
-          <li>{data?.email}</li>
+        <h1 className="text-center font-bold text-4xl">{data?.body}</h1>
+        <h2 className="text-3xl mt-10 font-semibold">Detail</h2>
+        <ul className="pl-10 mt-5 list-disc">
+          <li>Name: {data?.name}</li>
+          <li>Email: {data?.email}</li>
         </ul>
 
         <PostByPostId id={data?.postId} />

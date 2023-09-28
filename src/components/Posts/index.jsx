@@ -1,7 +1,6 @@
 import { Layout } from "@/src/components/Layout";
 import { usePosts } from "@/src/hooks/useFetchArray";
 import Link from "next/link";
-import classes from "src/components/Posts/Posts.module.css";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
@@ -20,7 +19,7 @@ export const Posts = () => {
 
   return (
     <Layout>
-      <ol className={classes.list}>
+      <ol className="list-decimal pl-10">
         {data.map((post) => {
           return (
             <li key={post.id}>

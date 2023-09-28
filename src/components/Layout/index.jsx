@@ -1,5 +1,3 @@
-import styles from "src/components/Layout/Layout.module.css";
-
 export const Layout = (props) => {
-  return <div className={styles.container}>{props.children}</div>;
+  return <div className="w-10/12 ml-auto mr-auto px-5 max-w-full">{props.children}</div>;
 };

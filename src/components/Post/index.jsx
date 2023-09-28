@@ -22,9 +22,9 @@ export const Post = () => {
 
       <Layout>
         {/* optional chaining */}
-        <h1>{post?.title}</h1>
-        <p>{post?.body}</p>
-        {user?.name ? <small>Created by {user.name}</small> : null}
+        <h1 className="text-center font-bold text-4xl">{post?.title}</h1>
+        <p className="mt-10">{post?.body}</p>
+        {user?.name ? <small className="block mt-5">Created by {user.name}</small> : null}
         <CommentsByPostId id={post?.id} />
       </Layout>
     </>

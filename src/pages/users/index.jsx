@@ -1,6 +1,5 @@
 import { Header } from "@/src/components/Header";
 import { Layout } from "@/src/components/Layout";
-import classes from "@/src/components/Layout/Layout.module.css";
 import Head from "next/head";
 import { Users as UserComponent } from "src/components/Users";
 
@@ -15,7 +14,7 @@ const Users = () => {
 
       <main>
         <Layout>
-          <h1 className={classes.pageTitle}>ユーザー一覧</h1>
+          <h1 className="text-center font-bold text-4xl mb-8">ユーザー一覧</h1>
           <UserComponent />
         </Layout>
       </main>

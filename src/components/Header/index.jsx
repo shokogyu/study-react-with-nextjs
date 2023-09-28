@@ -1,5 +1,4 @@
 import Link from "next/link";
-import classes from "src/components/Header/Header.module.css";
 
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
@@ -10,10 +9,10 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <header className={classes.header}>
+    <header className="h-16 flex gap-24 p-5 border-b border-white justify-center mb-8">
       {NAV_ITEMS.map((item) => {
         return (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} className="text-lg hover:text-blue-400">
             {item.label}
           </Link>
         );

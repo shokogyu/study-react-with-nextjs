@@ -17,7 +17,7 @@ export const Users = () => {
   }
 
   return (
-    <ol>
+    <ol className="list-decimal pl-10">
       {data.map((user) => {
         return (
           <li key={user.id}>

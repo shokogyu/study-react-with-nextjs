@@ -19,7 +19,7 @@ export const Comments = () => {
 
   return (
     <Layout>
-      <ol>
+      <ol className="list-decimal pl-10">
         {data.map((comment) => {
           return (
             <li key={comment.id}>

@@ -17,11 +17,11 @@ export const PostByPostId = (props) => {
   }
 
   return (
-    <div>
-      <h2>Post of this Comment is...</h2>
+    <div className="mt-16">
+      <h2 className="text-3xl font-semibold">The Post</h2>
       {data?.map((post) => {
         return (
-          <div key={post.id}>
+          <div key={post.id} className="mt-4">
             <Link href={`/posts/${post.id}`}>{post.title}</Link>
           </div>
         );

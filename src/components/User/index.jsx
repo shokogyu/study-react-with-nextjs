@@ -1,5 +1,4 @@
 import { Layout } from "@/src/components/Layout";
-import classes from "@/src/components/Layout/Layout.module.css";
 import { PostsByUserId } from "@/src/components/Posts/PostsByUserId";
 import { useUser } from "@/src/hooks/useUser";
 
@@ -17,7 +16,7 @@ export const User = () => {
 
   return (
     <Layout>
-      <h1 className={classes.pageTitle}>{data?.name}</h1>
+      <h1 className="text-center font-bold text-4xl">{data?.name}</h1>
       <ul>
         <li>{data?.email}</li>
         <li>{data?.phone}</li>
