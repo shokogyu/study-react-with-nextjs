@@ -1,5 +1,7 @@
+import { fetcher } from "@/src/utils/fetcher";
 import Head from "next/head";
 import "src/styles/globals.css";
+import { SWRConfig } from "swr";
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -10,7 +12,9 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <SWRConfig value={{ fetcher: fetcher }}>
+        <Component {...pageProps} />
+      </SWRConfig>
     </>
   );
 };
