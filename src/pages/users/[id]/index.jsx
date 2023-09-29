@@ -29,7 +29,7 @@ const UserId = ({ fallback }) => {
   // const { fallback } = props;
 
   return (
-    <SWRConfig value={{ fallback }}>
+    <>
       <Head>
         <title>Users Detail Page</title>
       </Head>
@@ -37,9 +37,11 @@ const UserId = ({ fallback }) => {
       <Header />
 
       <main>
-        <UserComponent />
+        <SWRConfig value={{ fallback }}>
+          <UserComponent />
+        </SWRConfig>
       </main>
-    </SWRConfig>
+    </>
   );
 };
 
