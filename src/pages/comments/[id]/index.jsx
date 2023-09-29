@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 };
 
@@ -24,6 +24,13 @@ export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
   const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
   const comment = await fetch(COMMENT_API_URL);
+
+  if (!comment.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
   const commentData = await comment.json();
 
   return {
