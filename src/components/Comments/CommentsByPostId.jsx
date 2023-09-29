@@ -18,16 +18,18 @@ export const CommentsByPostId = (props) => {
 
   return (
     <div className="mt-20">
-      <h2 className="text-3xl font-semibold">Comments</h2>
-      <ol className="list-decimal pl-10 mt-4">
+      <h2 className="text-2xl font-semibold">コメント</h2>
+      <ul className="mt-4 space-y-4">
         {data.map((comment) => {
           return (
-            <li key={comment.id}>
-              <Link href={`/comments/${comment.id}`}>{comment.body}</Link>
+            <li key={comment.id} className="border-b pb-4 truncate">
+              <Link href={`/comments/${comment.id}`} className="hover:text-blue-500 transition-all ">
+                {comment.body}
+              </Link>
             </li>
           );
         })}
-      </ol>
+      </ul>
     </div>
   );
 };

@@ -18,11 +18,14 @@ export const PostByPostId = (props) => {
 
   return (
     <div className="mt-16">
-      <h2 className="text-3xl font-semibold">The Post</h2>
+      <h2 className="text-2xl font-bold">元の投稿</h2>
       {data?.map((post) => {
         return (
           <div key={post.id} className="mt-4">
-            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+            <Link href={`/posts/${post.id}`} className="hover:text-blue-500 transition-all">
+              <p className="font-semibold">{post.title}</p>
+              <p className="text-gray-400">{post.body}</p>
+            </Link>
           </div>
         );
       })}

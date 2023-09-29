@@ -17,9 +17,12 @@ export const User = () => {
   return (
     <Layout>
       <h1 className="text-center font-bold text-4xl">{data?.name}</h1>
-      <ul>
+      <h2 className="font-bold text-2xl">詳細</h2>
+      <ul className="list-disc list-inside mt-4">
+        <li>{data?.username}</li>
         <li>{data?.email}</li>
         <li>{data?.phone}</li>
+        <li>{data?.address.city}</li>
         <li>{data?.website}</li>
       </ul>
       <PostsByUserId id={data?.id} />

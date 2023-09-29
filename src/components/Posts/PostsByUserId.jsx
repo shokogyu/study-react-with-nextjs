@@ -18,8 +18,8 @@ export const PostsByUserId = (props) => {
 
   return (
     <div className="mt-20">
-      <h2 className="text-3xl font-semibold">Posts by the User...</h2>
-      <ol className="list-decimal pl-10 mt-4">
+      <h2 className="text-2xl font-bold">投稿</h2>
+      <ol className="list-decimal list-inside mt-4 space-y-2">
         {data?.map((post) => {
           return (
             <li key={post.id}>

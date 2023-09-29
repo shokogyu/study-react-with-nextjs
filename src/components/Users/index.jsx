@@ -17,14 +17,17 @@ export const Users = () => {
   }
 
   return (
-    <ol className="list-decimal pl-10">
+    <ul className="grid grid-cols-3 gap-4">
       {data.map((user) => {
         return (
-          <li key={user.id}>
-            <Link href={`/users/${user.id}`}>{user.name}</Link>
+          <li key={user.id} className="border-zinc-200 border rounded-lg">
+            <Link href={`/users/${user.id}`} className="block p-6 hover:opacity-80 transition-opacity">
+              <p className="font-bold text-lg">{user.name}</p>
+              <div className="text-sm text-gray-300">{user.email}</div>
+            </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };

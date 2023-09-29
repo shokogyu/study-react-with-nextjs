@@ -23,10 +23,10 @@ export const Comment = () => {
       <Layout>
         {/* optional chaining */}
         <h1 className="text-center font-bold text-4xl">{data?.body}</h1>
-        <h2 className="text-3xl mt-10 font-semibold">Detail</h2>
-        <ul className="pl-10 mt-5 list-disc">
-          <li>Name: {data?.name}</li>
-          <li>Email: {data?.email}</li>
+        <h2 className="text-2xl mt-10 font-bold">詳細</h2>
+        <ul className="list-inside mt-5 list-disc">
+          <li>名前 : {data?.name}</li>
+          <li>Email : {data?.email}</li>
         </ul>
 
         <PostByPostId id={data?.postId} />

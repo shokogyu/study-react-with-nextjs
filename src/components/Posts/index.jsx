@@ -19,15 +19,20 @@ export const Posts = () => {
 
   return (
     <Layout>
-      <ol className="list-decimal pl-10">
+      <ul className="pl-10 space-y-6">
         {data.map((post) => {
           return (
             <li key={post.id}>
-              <Link href={`/posts/${post.id}`}>{post.title}</Link>
+              <Link href={`/posts/${post.id}`} className="group">
+                <h2 className="font-bold text-xl group-hover:text-blue-500 transition-all">
+                  {post.title}
+                </h2>
+                <p className="text-gray-500 pl-2">{post.body}</p>
+              </Link>
             </li>
           );
         })}
-      </ol>
+      </ul>
     </Layout>
   );
 };
