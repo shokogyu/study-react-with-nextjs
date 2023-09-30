@@ -1,3 +1,4 @@
+import { API_URL } from "@/src/utils/const";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -5,10 +6,10 @@ export const usePost = () => {
   const router = useRouter();
 
   const { data: post, error: postError } = useSWR(
-    router.query.id ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}` : null
+    router.query.id ? `${API_URL}/posts/${router.query.id}` : null
   );
   const { data: user, error: userError } = useSWR(
-    post?.userId ? `https://jsonplaceholder.typicode.com/users/${post.userId}` : null
+    post?.userId ? `${API_URL}/users/${post.userId}` : null
   );
 
   return {
