@@ -1,8 +1,9 @@
-import { usePostsByUserId } from "@/src/hooks/useFetchArray";
+import { useFetchArray } from "@/src/hooks/useFetchArray";
+import { API_URL } from "@/src/utils/const";
 import Link from "next/link";
 
 export const PostsByUserId = (props) => {
-  const { data, error, isLoading, isEmpty } = usePostsByUserId(props.id);
+  const { data, error, isLoading, isEmpty } = useFetchArray(props.id ? `${API_URL}/posts?userId=${props.id}` : null);
 
   // if (isLoading) {
   //   return <div>Loading...</div>;

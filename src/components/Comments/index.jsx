@@ -1,9 +1,10 @@
 import { Layout } from "@/src/components/Layout";
-import { useComments } from "@/src/hooks/useFetchArray";
+import { useFetchArray } from "@/src/hooks/useFetchArray";
+import { API_URL } from "@/src/utils/const";
 import Link from "next/link";
 
 export const Comments = () => {
-  const { data, error, isLoading, isEmpty } = useComments();
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${API_URL}/comments`);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -18,7 +19,6 @@ export const Comments = () => {
   }
 
   return (
-    <Layout>
       <ul className="space-y-4">
         {data.map((comment) => {
           return (
@@ -34,6 +34,5 @@ export const Comments = () => {
           );
         })}
       </ul>
-    </Layout>
   );
 };
